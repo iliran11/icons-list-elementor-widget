@@ -32,9 +32,9 @@ class Elementor_Test_Widget extends \Elementor\Widget_Base
     );
 
     $this->add_control(
-      'icon',
+      'list_icon',
       [
-        'label' => __('Icon', 'text-domain'),
+        'label' => __('List Icon', 'text-domain'),
         'type' => \Elementor\Controls_Manager::ICONS,
         'default' => [
           'value' => 'fas fa-star',
@@ -49,7 +49,7 @@ class Elementor_Test_Widget extends \Elementor\Widget_Base
   protected function render()
   {
     $settings = $this->get_settings_for_display();
-    $icon = \Elementor\Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']);
+    $icon = \Elementor\Icons_Manager::render_icon($settings['list_icon'], ['aria-hidden' => 'true']);
 ?>
     <div class="my-icon-wrapper">
       <?php $icon ?>
