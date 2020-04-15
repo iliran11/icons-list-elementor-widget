@@ -49,19 +49,10 @@ class Elementor_Test_Widget extends \Elementor\Widget_Base
   protected function render()
   {
     $settings = $this->get_settings_for_display();
+    $icon = \Elementor\Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']);
 ?>
     <div class="my-icon-wrapper">
-      <?php \Elementor\Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
-    </div>
-  <?php
-  }
-
-  protected function _content_template()
-  {
-  ?>
-
-    <div class="my-icon-wrapper">
-      liran
+      <?php $icon ?>
     </div>
 <?php
   }
