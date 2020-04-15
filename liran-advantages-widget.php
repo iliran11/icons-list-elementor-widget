@@ -25,20 +25,21 @@ class Elementor_Test_Widget extends \Elementor\Widget_Base
   protected function _register_controls()
   {
     $this->start_controls_section(
-      'content_section',
+      'section_icon',
       [
-        'label' => __('Content', 'plugin-name'),
-        'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+        'label' => __('Icon', 'text-domain'),
       ]
     );
 
     $this->add_control(
-      'url',
+      'icon',
       [
-        'label' => __('URL to embed', 'plugin-name'),
-        'type' => \Elementor\Controls_Manager::TEXT,
-        'input_type' => 'url',
-        'placeholder' => __('https://your-link.com', 'plugin-name'),
+        'label' => __('Icon', 'text-domain'),
+        'type' => \Elementor\Controls_Manager::ICONS,
+        'default' => [
+          'value' => 'fas fa-star',
+          'library' => 'solid',
+        ],
       ]
     );
 
@@ -48,18 +49,20 @@ class Elementor_Test_Widget extends \Elementor\Widget_Base
   protected function render()
   {
     $settings = $this->get_settings_for_display();
-
-    // $html = wp_oembed_get($settings['url']);
-
-    // echo '<div class="oembed-elementor-widget">';
-
-    // echo ($html) ? $html : $settings['url'];
-
-    echo '<div>hello world</div>';
+?>
+    <div class="my-icon-wrapper">
+      <?php \Elementor\Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
+    </div>
+  <?php
   }
 
   protected function _content_template()
   {
-    echo '<div> hello world</div>';
+  ?>
+
+    <div class="my-icon-wrapper">
+      liran
+    </div>
+<?php
   }
 }
