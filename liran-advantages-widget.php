@@ -96,9 +96,11 @@ class Elementor_Test_Widget extends \Elementor\Widget_Base
     $settings = $this->get_settings_for_display();
     $icon = \Elementor\Icons_Manager::render_icon($settings['list_icon'], ['aria-hidden' => 'true']);
 ?>
-    <div class="my-icon-wrapper">
-      <?php $icon ?>
-    </div>
+    <dl>
+      <?php foreach ($settings['list'] as $item) : ?>
+        <span class="liran"><?php echo $item['list_item_title'] ?> </span>
+      <?php endforeach; ?>
+    </dl>
 <?php
   }
 }
