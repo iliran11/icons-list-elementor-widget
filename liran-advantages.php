@@ -29,7 +29,14 @@ final class Elementor_Test_Extension
   public function init()
   {
     add_action('elementor/widgets/widgets_registered', [$this, 'init_widgets']);
-    add_action('elementor/controls/controls_registered', [$this, 'init_controls']);
+    add_action('elementor/frontend/after_enqueue_styles', [$this, 'widget_styles']);
+  }
+  public function widget_styles()
+  {
+
+    wp_register_style('liran-widget-1', plugins_url('css/style.css', __FILE__));
+    wp_enqueue_style( 'liran-widget-1' );
+
   }
   public function init_widgets()
   {
