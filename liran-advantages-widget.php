@@ -19,7 +19,7 @@ class Elementor_Test_Widget extends \Elementor\Widget_Base
 
   public function get_categories()
   {
-    return ['liran-custom'];
+    return ['alex-media'];
   }
 
   protected function _register_controls()

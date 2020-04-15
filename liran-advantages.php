@@ -28,15 +28,25 @@ final class Elementor_Test_Extension
 
   public function init()
   {
+    add_action('elementor/elements/categories_registered', [$this, 'add_category']);
     add_action('elementor/widgets/widgets_registered', [$this, 'init_widgets']);
     add_action('elementor/frontend/after_enqueue_styles', [$this, 'widget_styles']);
+  }
+  public function add_category($elements_manager)
+  {
+    $elements_manager->add_category(
+      'alex-media',
+      [
+        'title' => __('Alex-Media', 'plugin-name'),
+        'icon' => 'fa fa-plug',
+      ]
+    );
   }
   public function widget_styles()
   {
 
-    wp_register_style('liran-widget-1', plugins_url('css/style.css', __FILE__));
-    wp_enqueue_style( 'liran-widget-1' );
-
+    wp_register_style('alexmedia-css', plugins_url('css/style.css', __FILE__));
+    wp_enqueue_style('alexmedia-css');
   }
   public function init_widgets()
   {
