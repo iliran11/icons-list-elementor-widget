@@ -42,7 +42,52 @@ class Elementor_Test_Widget extends \Elementor\Widget_Base
         ],
       ]
     );
+    $this->end_controls_section();
+    $this->start_controls_section(
+      'list_items',
+      [
+        'label' => __('List items', 'plugin-name'),
+        'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+      ]
+    );
+    $repeater = new \Elementor\Repeater();
+    $repeater->add_control(
+      'list_item_title',
+      [
+        'label' => __('Title', 'plugin-domain'),
+        'type' => \Elementor\Controls_Manager::TEXT,
+        'default' => __('List Title', 'plugin-domain'),
+        'label_block' => true,
+      ]
+    );
 
+    $repeater->add_control(
+      'list_item_content',
+      [
+        'label' => __('Content', 'plugin-domain'),
+        'type' => \Elementor\Controls_Manager::WYSIWYG,
+        'default' => __('List Content', 'plugin-domain'),
+        'show_label' => false,
+      ]
+    );
+    $this->add_control(
+      'list',
+      [
+        'label' => __('Repeater List', 'plugin-domain'),
+        'type' => \Elementor\Controls_Manager::REPEATER,
+        'fields' => $repeater->get_controls(),
+        'default' => [
+          [
+            'list_item_title' => __('Title #1', 'plugin-domain'),
+            'list_item_content' => __('Item content. Click the edit button to change this text.', 'plugin-domain'),
+          ],
+          [
+            'list_item_title' => __('Title #2', 'plugin-domain'),
+            'list_item_content' => __('Item content. Click the edit button to change this text.', 'plugin-domain'),
+          ],
+        ],        'title_field' => '{{{ list_item_title }}}',
+      ]
+    );
     $this->end_controls_section();
   }
 
