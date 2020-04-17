@@ -20,6 +20,7 @@
 
 .alexmedia .item {
   display: flex;
+  align-items: center;
 }
 .alexmedia dt {
   color: white;
@@ -28,10 +29,13 @@
 .alexmedia .content {
   display: flex;
   flex-direction: column;
+  margin: auto;
 }
 .alexmedia .list-item-icon {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  margin-left: 10px;
 }
 .alexmedia .list-item-icon svg {
   width: 100%;
