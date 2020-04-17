@@ -102,8 +102,8 @@ class Elementor_Test_Widget extends \Elementor\Widget_Base
             <?php \Elementor\Icons_Manager::render_icon($settings['list_icon'], ['aria-hidden' => 'true']); ?>
           </div>
           <div class="content">
-            <dd><?php echo $item['list_item_title'] ?></dd>
-            <dt><?php echo $item['list_item_content'] ?></dd>
+            <dt><?php echo $item['list_item_title'] ?></dd>
+            <dd><?php echo $item['list_item_content'] ?></dd>
           </div>
         </div>
       <?php endforeach; ?>
