@@ -7,13 +7,11 @@
 @media only screen and (max-width: 1025px) {
   .alexmedia.icons-list {
     grid-template-columns: repeat(2, 1fr);
-    padding: 0px 50px;
   }
 }
 @media only screen and (max-width: 767px) {
   .alexmedia.icons-list {
     grid-template-columns: repeat(1, 1fr);
-    padding: 0px 50px;
     text-align: center;
   }
   .alexmedia .item {
